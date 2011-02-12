@@ -1,0 +1,4 @@
+2010-10-06
+  Upgrade plugin syntastic to 1.1.0
+  Skip eruby syntax validate, because "<%= form_for" is error.
+  Add less command in F7

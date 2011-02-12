@@ -1,0 +1,30 @@
+" source http://gist.github.com/318212
+
+" 查看 此次 gist 的情况
+map <F5> :!git st > d.diff <CR> :!git df >> d.diff <CR> :sp d.diff <CR><C-w>_
+" 运行当前测试文件
+map <F7> :up <CR> :!ruby -Itest % \| less <CR>
+" 删除空行, 替换行尾多余空格
+map <F12> :%g/^\s*\n\s*$/d<CR>:%s/\s\+$//g<CR>
+" 升级配置文件
+map <F9> :!curl -l http://gist.github.com/318212.txt > ~/.vim/agi-vimrc <CR>
+" 粘贴上次剪切版中的内容
+map <C-p> "0p
+" 跳到下一个windows
+map <C-j> <C-w>j
+" 输出 <%- -%>
+map <C-k> <C-w>k
+" 输出 =>
+imap <C-l> <SPACE>=><SPACE>
+" 输出 <%- -%>
+imap <C-k> <%-  -%><ESC>3hi
+" 输出 <%= %>
+imap <C-j> <%=  -%><ESC>3hi
+" 打开后自己定位到最后关闭时的行
+autocmd BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal `\"" | endif
+
+" 自动注释
+vmap mm :s/^/#/<CR>
+vmap mc :s/^#//<CR>
+
+colorscheme darkblue
